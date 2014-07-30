@@ -1,3 +1,6 @@
+This is a fork of pblittle's docker-logstash that simply puts elasticsearch on port 9500-9600 for reasons you may not want to admit!
+
+--------
 This is a logstash (1.4.2) image that is configurable to run using either the embedded elasticsearch or an elasticsearch node running in a separate container.
 
 To fetch and start a container running logstash (1.4.2), elasticsearch (1.1.1) and Kibana 3 (3.0.1), simply:
@@ -5,7 +8,7 @@ To fetch and start a container running logstash (1.4.2), elasticsearch (1.1.1) a
 	docker run -d \
 	  --name logstash \
 	  -p 514:514 \
-	  -p 9200:9200 \
+	  -p 9500:9500 \
 	  -p 9292:9292 \
 	  pblittle/docker-logstash
 
