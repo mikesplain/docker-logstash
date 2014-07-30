@@ -11,7 +11,7 @@ LOGSTASH_CONFIG_FILE="/opt/logstash.conf"
 # If you don't provide a value for the LOGSTASH_CONFIG_URL env
 # var, your install will default to our very basic logstash.conf file.
 if [ -z "${LOGSTASH_CONFIG_URL}" ]; then
-    LOGSTASH_CONFIG_URL="https://gist.github.com/pblittle/8778567/raw/logstash.conf"
+    LOGSTASH_CONFIG_URL="https://gist.github.com/mikesplain/623aadecf1d0ede5da27/raw/logstash.conf"
 fi
 
 wget $LOGSTASH_CONFIG_URL -O $LOGSTASH_CONFIG_FILE
@@ -22,6 +22,11 @@ wget $LOGSTASH_CONFIG_URL -O $LOGSTASH_CONFIG_FILE
 sed -e "s/ES_HOST/${ES_PORT_9200_TCP_ADDR}/g" \
     -e "s/ES_PORT/${ES_PORT_9200_TCP_PORT}/g" \
     -i $LOGSTASH_CONFIG_FILE
+
+KIBANA_CONFIG_FILE="/opt/logstash/vendor/kibana/config.js"
+
+# Since we're moving ES to another port, we need to point Kibana there too!
+sed -e "s/9200/9500/g" -i $KIBANA_CONFIG_FILE
 
 # Default path for SSL certificates
 SSL_CERT_PATH="/opt/ssl"
