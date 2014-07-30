@@ -10,7 +10,7 @@ To fetch and start a container running logstash (1.4.2), elasticsearch (1.1.1) a
 	  -p 514:514 \
 	  -p 9500:9500 \
 	  -p 9292:9292 \
-	  pblittle/docker-logstash
+	  mikepsplain/logstash
 
 If you want to link to an external elasticsearch container rather than the embedded server, add a link flag with your existing elasticsearch container's name. For example, to link to a container named `elasticsearch`:
 
@@ -19,7 +19,7 @@ If you want to link to an external elasticsearch container rather than the embed
 	  -link elasticsearch:es \
 	  -p 514:514 \
 	  -p 9292:9292 \
-	  pblittle/docker-logstash
+	  mikepsplain/logstash
 
 In addition to the link, if you want your elasticsearch node's `bind_host` and `port` automatically detected, you will need to set `ES_HOST` and `ES_PORT` placeholders in your `elasticsearch` definition in your logstash config file.
 
@@ -45,7 +45,7 @@ Without any configuration changes, an example `logstash.conf` will be created fo
 	  -p 514:514 \
 	  -p 9292:9292 \
 	  -e LOGSTASH_CONFIG_URL=https://gist.github.com/pblittle/8778567/raw/logstash.conf \
-	  pblittle/docker-logstash
+	  mikepsplain/logstash
 
 To build the image locally using Vagrant, perform the following steps from the project root:
 
