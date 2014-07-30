@@ -15,7 +15,7 @@ RUN cd /tmp && \
     tar -xzvf ./logstash-1.4.2.tar.gz && \
     mv ./logstash-1.4.2 /opt/logstash && \
     rm ./logstash-1.4.2.tar.gz \
-    rm /opt/logstash/vendor/kibana/app/dashboards/default.json \
+    /opt/logstash/vendor/kibana/app/dashboards/default.json && \
     mv /opt/logstash/vendor/kibana/app/dashboards/logstash.json /opt/logstash/vendor/kibana/app/dashboards/default.json
 
 # Copy build files to container root
