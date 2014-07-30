@@ -1,5 +1,5 @@
 FROM pblittle/base:0.3.0
-MAINTAINER P. Barrett Little <barrett@barrettlittle.com>
+MAINTAINER Mike Splain <mike.splain@gmail.com>
 
 # Download latest package lists
 RUN apt-get update
@@ -21,7 +21,7 @@ RUN mkdir /app
 ADD . /app
 
 # Elasticsearch
-EXPOSE 9200
+EXPOSE 9500
 
 # Kibana
 EXPOSE 9292
